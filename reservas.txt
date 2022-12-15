@@ -1,4 +1,2 @@
 Leandro,4,6
 Julio,3,5
-Fabio,2,1
-Vanessa,1,8
