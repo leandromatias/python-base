@@ -34,17 +34,17 @@ from datetime import datetime
 
 arguments = sys.argv[1:]
 
-# TODO: Exceptions
+# Validação
 if not arguments:
     operation = input("operação:")
     n1 = input("n1:")
     n2 = input("n2:")
     arguments = [operation, n1, n2]
+# Também validação, apesar da impressão inicial de except
 elif len(arguments) != 3:
     print("Número de argumentos inválidos")
     print("ex: `sum 5 5`")
     sys.exit(1)
-
 operation, *nums = arguments
 
 valid_operations = ("sum", "sub", "mul", 'div')
@@ -65,7 +65,11 @@ for num in nums:
         num = int(num)
     validated_nums.append(num)
 
-n1, n2 = validated_nums
+try:
+    n1, n2 = validated_nums
+except ValueError as e:
+    print(str(e))
+    sys.exit(1)
 
 # TODO: Usar um dict de funções
 if operation == "sum":
@@ -82,7 +86,12 @@ filepath = os.path.join(path, "infixcalc.log")
 timestamp = datetime.now().isoformat()
 user = os.getenv('USER', 'anonymous')
 
-with open(filepath, "a") as file_:
-    file_.write(f"{timestamp} - {user} - {operation}, {n1}, {n2} = {result}\n")
-
 print(f"O resultado é {result}")
+
+try:
+    with open(filepath, "a") as file_:
+        file_.write(f"{timestamp} - {user} - {operation}, {n1}, {n2} = {result}\n")
+except PermissionError as e:
+    # TODO: Logging
+    print(str(e))
+    sys.exit(1)

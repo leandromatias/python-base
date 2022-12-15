@@ -37,14 +37,25 @@ if arguments[0] == "read":
             print(f"text: {text}")
             print("-" * 30)
 
+# Validação
 if arguments[0] == "new":
     # criação da nota
-    title = arguments[1] # TODO: tratar exception
-    text = [
-        f"{title}",
-        input("tag:").strip(),
-        input("text:\n").strip(),
-    ]
-    # \t - tsv
-    with open(filepath, "a") as file_:
-        file_.write("\t".join(text) + "\n")
+    try:
+        title = arguments[1]
+        text = [
+            f"{title}",
+            input("tag:").strip(),
+            input("text:\n").strip(),
+        ]
+        # \t - tsv
+        try:
+            with open(filepath, "a") as file_:
+                file_.write("\t".join(text) + "\n")
+        except PermissionError as e:
+            print(str(e))
+    except IndexError as e:
+        # TODO: Logging
+        print(f"[Error] {str(e)}.")
+        print(f"Insert a title for the note as an argument.")
+        print(f"Format: new 'title'.")
+        

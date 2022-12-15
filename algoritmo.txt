@@ -1,0 +1,24 @@
+"""
+Algoritmos
+Sequência de instruções lógicas que visam obter a solução de um problema.
+
+Problema: Ir a padaria e comprar pão.
+Premissa: Padaria da Esquina abre no fim de semana até 12h, durante a semana até 19h e em feriados não abre (exceto Natal).
+
+1. A padaria está aberta?
+    a. Se é feriado e NÃO é Natal: Não
+    b. Senão, se é sabado OU domingo E antes do meio dia: sim
+    c. Senão, se é dia de semana E antes das 19h: sim
+    d. senão: não
+2. Se padaria está aberta E:
+    a. Se está chovendo: Pegar guarda-chuvas
+    b. Se está chovendo E calor: pegar guarda-chuvas e garrafa d'agua
+    c. Se está chovendo E frio OU nevando: pegar guarda-chuvas, blusa e botas
+    d. Ir até a padaria:
+        I. Se tem pão integral E baguete: pedir 6 de cada
+        II. Senão, se tem apenas pão integral ou baguete: pedir 12 do que tem
+        III. Senão, pedir 6 de qualquer pão
+3. Senão:
+    a. Ficar em casa e comer bolachas
+"""
+

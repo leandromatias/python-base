@@ -1,3 +1,6 @@
 sub, 9, 987 = -978
 div, 9, 3 = 3.0
 2022-12-12T11:27:31.296739 - leandroazmatias - div, 9, 3 = 3.0
+2022-12-13T17:02:39.766664 - leandroazmatias - mul, 2, 4 = 8
+2022-12-13T17:05:05.492972 - leandroazmatias - mul, 12, 3 = 36
+2022-12-13T17:12:10.768320 - leandroazmatias - mul, 12, 1 = 12
