@@ -17,7 +17,9 @@ keys = info.keys()
 while True:
     # Condição de parada
     # O dicionário está completamente preenchido
-    if all(info.values()): # [None, None]
+    info_size = len(info.values())
+    filled_size = len([value for value in info.values() if value is not None])
+    if info_size == filled_size:
         break # Cessa o while
 
     for key in keys: # ["temperatura", "umidade"]
@@ -25,14 +27,14 @@ while True:
         if info[key] is not None:
             continue
         try:
-            info[key] = int(input(f"Qual a {key}?").strip())
+            info[key] = int(input(f"Qual a {key}? ").strip())
         except ValueError:
             log.error(f"A {key} informada é inválida.")
             break # Cessa o for
 
 # Desempacotar temp e umidade da lista de valores do dicionário
 temp, umidade = info.values()
-print(temp, umidade)
+
 if temp > 45:
     print("Alerta!!! Perigo de calor extremo.")
 elif temp > 30 and (temp * 3) >= umidade:
